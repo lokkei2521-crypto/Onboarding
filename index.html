@@ -3339,7 +3339,841 @@
                     none;
             }
         }
+/* =========================================================
+   ANIMATION UPGRADE
+   Professional / subtle / TradeGP style
+========================================================= */
 
+
+/* ---------------------------------------------------------
+   1. STRONGER SCROLL REVEAL
+--------------------------------------------------------- */
+
+.reveal {
+
+    opacity: 0;
+
+    filter:
+        blur(3px);
+
+    transform:
+        translateY(20px)
+        scale(0.996);
+
+    transition:
+        opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    filter:
+        blur(0);
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+
+/* ---------------------------------------------------------
+   2. STEP CARDS ENTER LEFT / RIGHT
+--------------------------------------------------------- */
+
+.steps-wrapper
+.step-card.reveal:nth-child(odd) {
+
+    transform:
+        translate(-16px, 18px)
+        scale(0.996);
+}
+
+
+.steps-wrapper
+.step-card.reveal:nth-child(even) {
+
+    transform:
+        translate(16px, 18px)
+        scale(0.996);
+}
+
+
+.steps-wrapper
+.step-card.reveal.visible {
+
+    transform:
+        translate(0, 0)
+        scale(1);
+}
+
+
+
+/* ---------------------------------------------------------
+   3. SMOOTHER CARD HOVER
+--------------------------------------------------------- */
+
+.card:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(24, 245, 31, 0.17);
+
+    box-shadow:
+        0 17px 36px rgba(0, 0, 0, 0.25),
+        0 0 22px rgba(24, 245, 31, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+
+.step-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(24, 245, 31, 0.20);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.27),
+        0 0 22px rgba(24, 245, 31, 0.045);
+}
+
+
+
+/* ---------------------------------------------------------
+   4. NAVIGATION DEPTH WHEN SCROLLING
+--------------------------------------------------------- */
+
+.quick-nav {
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.quick-nav.is-scrolled {
+
+    background:
+        rgba(8, 11, 12, 0.93);
+
+    border-bottom-color:
+        rgba(24, 245, 31, 0.10);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.25),
+        0 1px 0 rgba(24, 245, 31, 0.025);
+}
+
+
+.scroll-progress-bar {
+
+    transition:
+        width 0.08s linear;
+}
+
+
+
+/* ---------------------------------------------------------
+   5. HEADER ELEMENTS ENTER SEPARATELY
+--------------------------------------------------------- */
+
+@keyframes premiumHeaderReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.company-logo,
+.header-title,
+.header-action {
+
+    opacity: 0;
+
+    animation:
+        premiumHeaderReveal
+        0.65s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+
+.company-logo {
+
+    animation-delay:
+        0.05s;
+}
+
+
+.header-title {
+
+    animation-delay:
+        0.13s;
+}
+
+
+.header-action {
+
+    animation-delay:
+        0.21s;
+}
+
+
+
+/* ---------------------------------------------------------
+   6. SECTION GREEN LINE GROWS IN
+--------------------------------------------------------- */
+
+@keyframes accentGrow {
+
+    from {
+
+        opacity:
+            0.25;
+
+        transform:
+            scaleY(0.20);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            scaleY(1);
+    }
+}
+
+
+.section-accent {
+
+    transform-origin:
+        center bottom;
+}
+
+
+.reveal.visible
+.section-accent,
+.section-heading.reveal.visible
+.section-accent {
+
+    animation:
+        accentGrow
+        0.50s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+
+
+/* ---------------------------------------------------------
+   7. BEFORE YOU START STAGGER
+--------------------------------------------------------- */
+
+@keyframes softLift {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(13px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+#before-start.reveal
+.before-group,
+#before-start.reveal
+.upload-note {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(13px);
+}
+
+
+#before-start.reveal.visible
+.before-group,
+#before-start.reveal.visible
+.upload-note {
+
+    animation:
+        softLift
+        0.55s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+
+#before-start.reveal.visible
+.before-group:nth-child(1) {
+
+    animation-delay:
+        0.10s;
+}
+
+
+#before-start.reveal.visible
+.before-group:nth-child(2) {
+
+    animation-delay:
+        0.18s;
+}
+
+
+#before-start.reveal.visible
+.upload-note {
+
+    animation-delay:
+        0.26s;
+}
+
+
+
+/* ---------------------------------------------------------
+   8. DOCUMENT EXAMPLES APPEAR ONE BY ONE
+--------------------------------------------------------- */
+
+#documents.reveal
+.example-card,
+#documents.reveal
+.info-box {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(13px);
+}
+
+
+#documents.reveal.visible
+.example-card,
+#documents.reveal.visible
+.info-box {
+
+    animation:
+        softLift
+        0.55s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+
+#documents.reveal.visible
+.example-card:nth-child(1) {
+
+    animation-delay:
+        0.08s;
+}
+
+
+#documents.reveal.visible
+.example-card:nth-child(2) {
+
+    animation-delay:
+        0.15s;
+}
+
+
+#documents.reveal.visible
+.example-card:nth-child(3) {
+
+    animation-delay:
+        0.22s;
+}
+
+
+#documents.reveal.visible
+.example-card:nth-child(4) {
+
+    animation-delay:
+        0.29s;
+}
+
+
+#documents.reveal.visible
+.info-box:nth-child(1) {
+
+    animation-delay:
+        0.22s;
+}
+
+
+#documents.reveal.visible
+.info-box:nth-child(2) {
+
+    animation-delay:
+        0.30s;
+}
+
+
+
+/* ---------------------------------------------------------
+   9. DOCUMENT IMAGE HOVER
+--------------------------------------------------------- */
+
+.example-image {
+
+    transition:
+        transform 0.24s ease,
+        border-color 0.24s ease,
+        box-shadow 0.24s ease;
+}
+
+
+.example-image:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.003);
+
+    border-color:
+        rgba(24, 245, 31, 1);
+
+    box-shadow:
+        0 14px 27px rgba(0, 0, 0, 0.27),
+        0 0 17px rgba(24, 245, 31, 0.06);
+}
+
+
+.example-image img {
+
+    transition:
+        transform 0.28s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.example-image:hover img {
+
+    transform:
+        scale(1.012);
+}
+
+
+
+/* ---------------------------------------------------------
+   10. JOURNEY OVERVIEW ANIMATION
+--------------------------------------------------------- */
+
+@keyframes journeyStageReveal {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes journeyLineReveal {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            scaleX(0);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            scaleX(1);
+    }
+}
+
+
+.journey-overview.reveal
+.journey-stage,
+.journey-overview.reveal
+.journey-connector {
+
+    opacity:
+        0;
+}
+
+
+.journey-overview.reveal
+.journey-connector {
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left center;
+}
+
+
+.journey-overview.reveal.visible
+.journey-stage {
+
+    animation:
+        journeyStageReveal
+        0.42s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+
+.journey-overview.reveal.visible
+.journey-connector {
+
+    animation:
+        journeyLineReveal
+        0.40s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+
+.journey-overview.reveal.visible > :nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.journey-overview.reveal.visible > :nth-child(2) {
+    animation-delay: 0.10s;
+}
+
+.journey-overview.reveal.visible > :nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.journey-overview.reveal.visible > :nth-child(4) {
+    animation-delay: 0.20s;
+}
+
+.journey-overview.reveal.visible > :nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.journey-overview.reveal.visible > :nth-child(6) {
+    animation-delay: 0.30s;
+}
+
+.journey-overview.reveal.visible > :nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.journey-overview.reveal.visible > :nth-child(8) {
+    animation-delay: 0.40s;
+}
+
+.journey-overview.reveal.visible > :nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.journey-overview.reveal.visible > :nth-child(10) {
+    animation-delay: 0.50s;
+}
+
+.journey-overview.reveal.visible > :nth-child(11) {
+    animation-delay: 0.55s;
+}
+
+
+
+/* ---------------------------------------------------------
+   11. STEP SCREENSHOT HOVER
+--------------------------------------------------------- */
+
+.screenshot-frame img {
+
+    transition:
+        transform 0.30s
+        cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.screenshot-frame:hover img {
+
+    transform:
+        scale(1.015);
+
+    opacity:
+        1;
+
+    border-color:
+        rgba(24, 245, 31, 0.95);
+
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.25),
+        0 0 15px rgba(24, 245, 31, 0.05);
+}
+
+
+
+/* ---------------------------------------------------------
+   12. DETAILS BUTTON ANIMATION
+--------------------------------------------------------- */
+
+.detail-box summary {
+
+    transition:
+        color 0.20s ease,
+        transform 0.20s ease;
+}
+
+
+.detail-box summary:hover {
+
+    transform:
+        translateX(2px);
+}
+
+
+.detail-box summary::before {
+
+    content:
+        "+";
+
+    display:
+        inline-block;
+
+    margin-right:
+        6px;
+
+    transform:
+        rotate(0deg);
+
+    transform-origin:
+        center;
+
+    transition:
+        transform 0.25s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.detail-box[open]
+summary::before {
+
+    content:
+        "+";
+
+    transform:
+        rotate(45deg);
+}
+
+
+
+/* ---------------------------------------------------------
+   13. VIDEO AMBIENT LIGHT
+--------------------------------------------------------- */
+
+@keyframes ambientSweep {
+
+    0%,
+    68% {
+
+        transform:
+            translateX(-150%)
+            skewX(-16deg);
+
+        opacity:
+            0;
+    }
+
+    78% {
+
+        opacity:
+            0.10;
+    }
+
+    100% {
+
+        transform:
+            translateX(500%)
+            skewX(-16deg);
+
+        opacity:
+            0;
+    }
+}
+
+
+.video-cover::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        -20%;
+
+    bottom:
+        -20%;
+
+    left:
+        -20%;
+
+    width:
+        24%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(24, 245, 31, 0.16),
+            transparent
+        );
+
+    opacity:
+        0;
+
+    pointer-events:
+        none;
+
+    animation:
+        ambientSweep
+        8s
+        ease-in-out
+        infinite;
+}
+
+
+
+/* ---------------------------------------------------------
+   14. BUTTON PRESS FEEDBACK
+--------------------------------------------------------- */
+
+.sign-up-btn,
+.cta-button,
+.play-button {
+
+    transition:
+        transform 0.20s ease,
+        box-shadow 0.20s ease,
+        background 0.20s ease;
+}
+
+
+.sign-up-btn:active,
+.cta-button:active,
+.play-button:active {
+
+    transform:
+        scale(0.97);
+}
+
+
+
+/* ---------------------------------------------------------
+   15. LIGHTBOX IMAGE SMOOTHER
+--------------------------------------------------------- */
+
+.lightbox-image-area img {
+
+    transition:
+        opacity 0.18s ease,
+        transform 0.24s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+
+/* ---------------------------------------------------------
+   ACCESSIBILITY
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .company-logo,
+    .header-title,
+    .header-action,
+    #before-start .before-group,
+    #before-start .upload-note,
+    #documents .example-card,
+    #documents .info-box,
+    .journey-overview .journey-stage,
+    .journey-overview .journey-connector {
+
+        opacity:
+            1 !important;
+
+        filter:
+            none !important;
+
+        transform:
+            none !important;
+
+        animation:
+            none !important;
+
+        transition:
+            none !important;
+    }
+
+
+    .video-cover::after {
+
+        display:
+            none;
+    }
+}
     </style>
 
 </head>
@@ -5700,7 +6534,410 @@
         }
     );
 
+/* =========================================================
+   EXTRA PREMIUM INTERACTIONS
+========================================================= */
 
+
+/* ---------------------------------------------------------
+   1. NAVIGATION DEPTH WHEN PAGE SCROLLS
+--------------------------------------------------------- */
+
+const premiumQuickNav =
+    document.querySelector(
+        ".quick-nav"
+    );
+
+
+function updatePremiumNav() {
+
+    if (
+        !premiumQuickNav
+    ) {
+
+        return;
+    }
+
+
+    premiumQuickNav.classList.toggle(
+
+        "is-scrolled",
+
+        window.scrollY > 18
+    );
+}
+
+
+window.addEventListener(
+
+    "scroll",
+
+    updatePremiumNav,
+
+    {
+        passive: true
+    }
+);
+
+
+updatePremiumNav();
+
+
+
+/* ---------------------------------------------------------
+   2. SMOOTH DETAILS / VIEW DETAILED STEPS
+--------------------------------------------------------- */
+
+const animatedDetailBoxes =
+    document.querySelectorAll(
+        ".detail-box"
+    );
+
+
+animatedDetailBoxes.forEach(
+
+    function(detail) {
+
+        const summary =
+            detail.querySelector(
+                "summary"
+            );
+
+
+        const content =
+            detail.querySelector(
+                ".detail-content"
+            );
+
+
+        if (
+            !summary ||
+            !content
+        ) {
+
+            return;
+        }
+
+
+        let currentAnimation =
+            null;
+
+        let isClosing =
+            false;
+
+        let isOpening =
+            false;
+
+
+        summary.addEventListener(
+
+            "click",
+
+            function(event) {
+
+                event.preventDefault();
+
+
+                detail.style.overflow =
+                    "hidden";
+
+
+                if (
+                    detail.open
+                ) {
+
+                    closeAnimatedDetail();
+                }
+
+                else {
+
+                    openAnimatedDetail();
+                }
+            }
+        );
+
+
+        function openAnimatedDetail() {
+
+            if (
+                currentAnimation
+            ) {
+
+                currentAnimation.cancel();
+            }
+
+
+            const startHeight =
+                summary.offsetHeight;
+
+
+            detail.open =
+                true;
+
+
+            detail.style.height =
+                startHeight + "px";
+
+
+            const endHeight =
+                summary.offsetHeight +
+                content.offsetHeight +
+                8;
+
+
+            isOpening =
+                true;
+
+
+            currentAnimation =
+                detail.animate(
+
+                    {
+                        height: [
+                            startHeight + "px",
+                            endHeight + "px"
+                        ],
+
+                        opacity: [
+                            0.96,
+                            1
+                        ]
+                    },
+
+                    {
+                        duration:
+                            300,
+
+                        easing:
+                            "cubic-bezier(0.22, 1, 0.36, 1)"
+                    }
+                );
+
+
+            currentAnimation.onfinish =
+                finishDetailAnimation;
+
+
+            currentAnimation.oncancel =
+                function() {
+
+                    isOpening =
+                        false;
+                };
+        }
+
+
+        function closeAnimatedDetail() {
+
+            if (
+                currentAnimation
+            ) {
+
+                currentAnimation.cancel();
+            }
+
+
+            const startHeight =
+                detail.offsetHeight;
+
+
+            const endHeight =
+                summary.offsetHeight;
+
+
+            isClosing =
+                true;
+
+
+            currentAnimation =
+                detail.animate(
+
+                    {
+                        height: [
+                            startHeight + "px",
+                            endHeight + "px"
+                        ],
+
+                        opacity: [
+                            1,
+                            0.96
+                        ]
+                    },
+
+                    {
+                        duration:
+                            250,
+
+                        easing:
+                            "cubic-bezier(0.22, 1, 0.36, 1)"
+                    }
+                );
+
+
+            currentAnimation.onfinish =
+                function() {
+
+                    detail.open =
+                        false;
+
+
+                    finishDetailAnimation();
+                };
+
+
+            currentAnimation.oncancel =
+                function() {
+
+                    isClosing =
+                        false;
+                };
+        }
+
+
+        function finishDetailAnimation() {
+
+            currentAnimation =
+                null;
+
+            isClosing =
+                false;
+
+            isOpening =
+                false;
+
+            detail.style.height =
+                "";
+
+            detail.style.overflow =
+                "";
+        }
+    }
+);
+
+
+
+/* ---------------------------------------------------------
+   3. ADD SLIGHT PARALLAX FEEL TO STEP CARDS
+--------------------------------------------------------- */
+
+const premiumStepCards =
+    document.querySelectorAll(
+        ".step-card"
+    );
+
+
+premiumStepCards.forEach(
+
+    function(card) {
+
+        card.addEventListener(
+
+            "mouseenter",
+
+            function() {
+
+                card.style.transition =
+                    "transform 0.25s ease, " +
+                    "border-color 0.25s ease, " +
+                    "box-shadow 0.25s ease";
+            }
+        );
+
+
+        card.addEventListener(
+
+            "mouseleave",
+
+            function() {
+
+                card.style.removeProperty(
+                    "--mx"
+                );
+
+
+                card.style.removeProperty(
+                    "--my"
+                );
+            }
+        );
+    }
+);
+
+
+
+/* ---------------------------------------------------------
+   4. SMOOTHER NAV CLICK
+--------------------------------------------------------- */
+
+document.querySelectorAll(
+    '.quick-nav a[href^="#"]'
+).forEach(
+
+    function(link) {
+
+        link.addEventListener(
+
+            "click",
+
+            function(event) {
+
+                const targetId =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) {
+
+                    return;
+                }
+
+
+                const targetSection =
+                    document.querySelector(
+                        targetId
+                    );
+
+
+                if (
+                    !targetSection
+                ) {
+
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                const navHeight =
+                    premiumQuickNav
+                    ? premiumQuickNav.offsetHeight
+                    : 0;
+
+
+                const targetPosition =
+                    targetSection.getBoundingClientRect().top +
+                    window.scrollY -
+                    navHeight -
+                    8;
+
+
+                window.scrollTo({
+
+                    top:
+                        targetPosition,
+
+                    behavior:
+                        "smooth"
+                });
+            }
+        );
+    }
+);
 </script>
 
 
