@@ -4174,70 +4174,58 @@ summary::before {
             none;
     }
 }
-        /* =========================================================
-   STRONGER GREEN CARD GLOW
+ /* =========================================================
+   SOFT DIFFUSED GREEN GLOW
+   Soft bloom effect similar to company website
 ========================================================= */
 
-.card {
 
-    border-color:
-        rgba(24, 245, 31, 0.15);
+/* Normal card glow */
 
-    box-shadow:
-        0 14px 32px rgba(0, 0, 0, 0.28),
-
-        0 0 18px rgba(24, 245, 31, 0.07),
-
-        0 0 38px rgba(24, 245, 31, 0.035),
-
-        inset 0 1px 0 rgba(255, 255, 255, 0.035);
-}
-
-
-.card:hover {
-
-    border-color:
-        rgba(24, 245, 31, 0.30);
-
-    box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.31),
-
-        0 0 22px rgba(24, 245, 31, 0.12),
-
-        0 0 46px rgba(24, 245, 31, 0.055),
-
-        inset 0 1px 0 rgba(255, 255, 255, 0.045);
-}
-
-
-/* Step cards slightly stronger */
-
+.card,
 .step-card {
 
     border-color:
         rgba(24, 245, 31, 0.16);
 
     box-shadow:
-        0 15px 34px rgba(0, 0, 0, 0.27),
+        0 12px 30px rgba(0, 0, 0, 0.30),
 
-        0 0 20px rgba(24, 245, 31, 0.075),
+        /* close green glow */
+        0 0 12px rgba(24, 245, 31, 0.09),
 
-        0 0 42px rgba(24, 245, 31, 0.035);
+        /* medium diffused glow */
+        0 0 32px rgba(24, 245, 31, 0.055),
+
+        /* large soft bloom */
+        0 0 68px rgba(24, 245, 31, 0.028),
+
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 
+/* Stronger glow when hovering */
+
+.card:hover,
 .step-card:hover {
 
     border-color:
-        rgba(24, 245, 31, 0.32);
+        rgba(24, 245, 31, 0.28);
 
     box-shadow:
-        0 20px 42px rgba(0, 0, 0, 0.32),
+        0 16px 36px rgba(0, 0, 0, 0.32),
 
-        0 0 25px rgba(24, 245, 31, 0.13),
+        /* close green glow */
+        0 0 16px rgba(24, 245, 31, 0.13),
 
-        0 0 52px rgba(24, 245, 31, 0.06);
-}
+        /* medium diffused glow */
+        0 0 40px rgba(24, 245, 31, 0.08),
+
+        /* large soft bloom */
+        0 0 82px rgba(24, 245, 31, 0.04),
+
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}      
     </style>
 
 </head>
